@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<!-- Informació Meta -->
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Hector Villarreal Ortega">
+	<!-- Enllaç a l'arxiu CSS Extern -->
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/mainstyle.css') }}"/>
+	<!-- favicon -->
+
+	<link href="{{ url_for('static', filename='img/Logotip_ETSEIB.svg') }}" rel="icon" type="image/x-icon" />
+	<!-- 	Inicialitcem scripts de javascript que utilitzarem -->
+	<script src="{{ url_for('static', filename='js/javascript.js') }}"></script>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	
+
+	<!-- Títol de la pàgina -->
+	
+	<title> WebApp </title>
+</head>
+<body>
+	<header>
+		<!-- HEM DE POSAR UN LOGO -->
+		
+		<!-- DEFINIM EL NAVEGADOR DE LA PAGINA -->
+		
+		<ul class="topnav">
+		  <li><button onclick="changeSection('0')">Inici</button></li>
+		  <li><button onclick="changeSection('1')">WebApp</button></li>
+		  <li><button onclick="changeSection('2')">Contacte</button></li>
+		  <li><button onclick="changeSection('3')">Naltrus</button></li>
+		  <img src="{{ url_for('static', filename='img/Logotip_ETSEIB.svg') }}" style="height:50px; width:50px;float: right;">
+		</ul>
+	</header>
+	<script>
+		function slideOpen(){
+		document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
+		}	
+	</script>
+		<!-- PER TAL DE FER MES RESPONSIVE LA PAGINA I QUE A GOOGLE LI AGRADI MÉS, HO DEFINIM PER SECCIONS 
+		DINTRE D'AQUESTES TINDREM ARTICLES QUE SEGONS EL TAMANY DE PANTALLA CAURAN PER COLUMNES-->
+	<section class="container" id="Summary">
+		<article class="item" id="Home">
+			<h1>Inici</h1>
+			<p>Us presentem la nostra WebApp on podreu veure mitjançant gràfics la nota mitjana i el tant per cent d'aprovats que s'han enregistrat des que va canviar el pla d'estudis de l'escola. Si ets nou a l'escola i encara no tens ben clar a quines assignatures has de apretar més, amb aquesta aplicació et podràs fer una idea del que t'espera.</p>
+			<div class="imatge">
+			<img src="{{ url_for('static', filename='img/Logotip_ETSEIB.svg') }}" style="height:100%; width:100%;">
+			</div>
+		</article>
+	</section>	
+	<section class="container active" id="ourProject">
+		<article class="item1" id="inputs">
+			<h1>Mitjana de notes i % d'aprovats</h1>
+			<p>Introdueixi l'any, el quatrimestre i, opcionalment, podrà fer la comparativa entre nois i noies de l'escola. Un cop introduïts els paràmetres desitjats, premi el botó de refrescar gràfic per la seva visualització </p> 
+			<fieldset>
+			<form action="/filtre" method="post">
+			<button id="go">Refrescar Gràfic</button>
+			<p>Selecciona el curs</p>
+				<select name="curs">
+				  <option  type="checkbox" value="2010">2010</option>
+				  <option  type="checkbox" value="2011">2011</option>
+				  <option  type="checkbox" value="2012">2012</option>
+				  <option  type="checkbox" value="2013">2013</option>
+				  <option  type="checkbox" value="2014">2014</option>
+				  <option  type="checkbox" value="2015">2015</option>
+				</select>
+				<hr>
+			<p> Selecciona el quatrimestre </p>
+				<select name="quad">
+					<option  type="checkbox" value="1">Tardor</option>
+					<option  type="checkbox" value="2">Primavera</option>
+				</select><hr>
+				<input type="radio" name="gender" value="T" checked> Tots<br>
+				<input type="radio" name="gender" value="H">Homes<br>
+				<input type="radio" name="gender" value="D"> Dones
+			</form>
+			</fieldset>
+		</article>
+		<!-- AQUI ESTA EL CONTENIDOR DEL GRAFIC -->
+		<article class="item2" id="grafic">
+		  {% block content %} 
+		  {% endblock content %}
+		</article>
+	</section>
+<section class="container" id="container3">
+	<article class="item" id="contact">
+		<h1>Contacte</h1>
+			<p>Deixa un comentari i ens posarem en contacte quan el veiem</p>
+		<form onsubmit="alert('I will contact you asap!!')" action="" id="contact">
+				<fieldset>	
+					<legend>Deixa un comentari</legend>
+					<label>Nom:</label>
+					<input type="text" name="name" value="" placeholder="nom"> </input>
+					<br/>
+					<label>Email:</label> 
+					<input type="email" name="email" value="" placeholder="elteucorreu@domini.cat" required="required"></input> 
+					<br/>
+					<label>Comentari:</label><br>
+					<textarea name="comment" id="comment" rows="15" cols="50" placeholder="deixa el teu comentari aqui..."></textarea>
+					<br/>
+					<input type="submit" value="Envia"></input>
+				</fieldset>
+			</form>
+	</article>
+</section>
+<section class="container" id="container4">
+	<article class="item" id="aboutus">
+		<h1>Naltrus</h1>
+			<p>L'Arnau, en Jan i l'Hector som tres estudiants de grau en tecnologies industrials a L'ETSEIB, hem desenvolupat la nostra primera WebApp en l'assignatura de Projectes 1 que realitzem a aquesta casa.</p>
+			<div class="imatge2">
+			<img src="{{ url_for('static', filename='img/bfm.jpg') }}" style="height:100%; width:100%;">
+			</div>
+	</article>
+</section>
+	
+	
+	
+	<footer>
+	  <p>Copyright &copy; 2016 HVO</p> 
+	</footer>
+		
+</body>
+</html>

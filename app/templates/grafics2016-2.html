@@ -1,0 +1,91 @@
+{% extends 'index.html' %}
+{% block content %}
+    <script type="text/javascript"
+       src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+    function close_window() {
+        if (confirm("Close Window?")) {
+          close();
+        }
+    }
+	$(function () {
+    $('#container').highcharts({
+        chart: {
+            zoomType: 'xy'
+        },
+        title: {
+            text: "Curs: "+{{ curs }}+" Quad: "+{{quad}}
+			},
+        subtitle: {
+            text: "{{ sexe }}"
+        },
+        xAxis: [{
+            categories: ['Àlgebra', 'Càlcul 1', 'Mecànica Fonamental', 'Química 1', 'Fonaments d Informàtica', 'Geometria',
+                'Càlcul 2', 'Termodinàmica', 'Química 2', 'Expressió gràfica'],
+            crosshair: true
+        }],
+        yAxis: [{ // Primary yAxis
+            labels: {
+                format: '{value}%',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            title: {
+                text: 'Aprovats',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            }
+        }, { // Secondary yAxis
+            title: {
+                text: 'Nota mitja',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            labels: {
+                format: '{value}',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            opposite: true
+        }],
+        tooltip: {
+            shared: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            x: 120,
+            verticalAlign: 'top',
+            y: 40,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+        },
+        series: [{
+            name: 'Nota mitja',
+            type: 'column',
+            yAxis: 1,
+				data: {{ aprov|safe }},
+           
+            tooltip: {
+                valueSuffix: ''
+            }
+
+        }, {
+            name: 'Aprovats',
+            type: 'column',
+			data: {{ percent|safe }},
+          
+            tooltip: {
+                valueSuffix:'%'
+            }
+        }]
+    });
+});
+</script>
+<div id="container" style="min-width:310px; height: 400px; margin: 0 auto"></div>
+{% endblock content %}
