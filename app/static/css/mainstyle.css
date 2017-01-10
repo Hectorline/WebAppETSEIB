@@ -131,7 +131,7 @@ fieldset{
 	background-color: #f2f2f2;
 	overflow: hidden;
 	width: 25%; /* entra nomes un */ 
-	margin-top: 1em;
+	margin-top: auto;
 	margin-bottom: auto;
 	margin-left: auto;
 	margin-right: auto;	
@@ -142,24 +142,29 @@ fieldset{
 	overflow: hidden;
 	width: 75%; /* entra nomes un */ 
 	height: 100%;
-	margin-top: 1em;
+	margin-top: auto;
 	margin-bottom: auto;
 	margin-left: auto;
 	margin-right: auto;	
 }
 /* #####################MEDIA SCREEN######################## */
-@media screen and (max-width: 767px){	
-.item1{
-	width: 95%;
-		-webkit-order: 1;
-		        order: 1;
-				padding-bottom: 2em;
-}	
-.item2{
-	width: 95%;
-		-webkit-order: 0;
-		        order: 0;
-}
+@media (max-width: 700px){	
+	.item1{
+		width: 95%;
+			-webkit-order: 1;
+			        order: 1;
+					padding-bottom: 2em;
+	}	
+	.item2{
+		width: 95%;
+			-webkit-order: 0;
+			        order: 0;
+	}
+	.imatge2{
+		width: 100%;
+		height: 100%;
+		margin: auto auto;
+	}
 }
 
 /* AQUI DEFINIM ELS MEDIA SCREEN PER TAL DE ADAPTAR LA NOSTRA WEB A DIFERENTS TIPUS DE PANTALLA */

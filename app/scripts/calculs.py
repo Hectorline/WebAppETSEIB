@@ -47,7 +47,7 @@ def percentatge(assig,quad,an,sex):
     retorna el percentatge d'aprovats per assignatura, quadrimestre, i any
     """
     if matriculats(assig,quad,an,sex) != 0:
-        return round((aprovats(assig,quad,an,sex)/matriculats(assig,quad,an,sex))*100,2)
+        return (aprovats(assig,quad,an,sex)/matriculats(assig,quad,an,sex))*100
     else:
         return 0
 
@@ -131,7 +131,7 @@ def notamitja(assig,quad,an,sex):
     f.close()
     if c == 0:
         return 0
-    return round(n/c,2)
+    return n/c
 
 def llistamitja(any,quad,sex):
     """

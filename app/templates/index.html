@@ -45,7 +45,7 @@
 	<section class="container" id="Summary">
 		<article class="item" id="Home">
 			<h1>Inici</h1>
-			<p>Us presentem la nostra WebApp on podreu veure mitjançant gràfics la nota mitjana i el tant per cent d'aprovats que s'han enregistrat des que va canviar el pla d'estudis de l'escola. Si ets nou a l'escola i encara no tens ben clar a quines assignatures has de apretar més, amb aquesta aplicació et podràs fer una idea del que t'espera.</p>
+			<p>Us presentem la nostra WebApp on podreu veure mitjançant gràfics la nota mitjana i el tant per cent d'aprovats que s'han enregistrat desde que va canviar el pla d'estudis de l'escola. Si ets nou a l'escola i encara no tens ben clar quines asignatures has de apretar més, amb aquesta aplicació et podràs fer una idea del que t'espera.</p>
 			<div class="imatge">
 			<img src="{{ url_for('static', filename='img/Logotip_ETSEIB.svg') }}" style="height:100%; width:100%;">
 			</div>
@@ -54,7 +54,7 @@
 	<section class="container active" id="ourProject">
 		<article class="item1" id="inputs">
 			<h1>Mitjana de notes i % d'aprovats</h1>
-			<p>Introdueixi l'any, el quatrimestre i, opcionalment, podrà fer la comparativa entre nois i noies de l'escola. Un cop introduïts els paràmetres desitjats, premi el botó de refrescar gràfic per la seva visualització </p> 
+			<p>Introdueix l'any, el quatrimestre i opcionalment pocs fer la comparativa entre nois i noies de l'escola. Un cop introduïts els parametres desitjats, premi el botó de refrescar gràfic per la seva visualització </p> 
 			<fieldset>
 			<form action="/filtre" method="post">
 			<button id="go">Refrescar Gràfic</button>
@@ -93,10 +93,10 @@
 				<fieldset>	
 					<legend>Deixa un comentari</legend>
 					<label>Nom:</label>
-					<input type="text" name="name" value="" placeholder="nom"> </input>
+					<input type="text" name="name" value="" placeholder="name"> </input>
 					<br/>
 					<label>Email:</label> 
-					<input type="email" name="email" value="" placeholder="elteucorreu@domini.cat" required="required"></input> 
+					<input type="email" name="email" value="" placeholder="youremail@domain.com" required="required"></input> 
 					<br/>
 					<label>Comentari:</label><br>
 					<textarea name="comment" id="comment" rows="15" cols="50" placeholder="deixa el teu comentari aqui..."></textarea>
