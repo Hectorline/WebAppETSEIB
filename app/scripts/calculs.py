@@ -1,4 +1,19 @@
+import time
 
+
+def time_this(func):
+    """The time_this decorator"""
+
+    def decorated(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        print(func.__name__ + ' rained in', (time.time() - start)*1000, 'ms')
+        return result
+
+    return decorated
+
+
+@time_this
 def matriculats(assig, quadri, an, sex):
     """
     retorna el nombre de matriculats per a un aassignatura, quadrimestre, any, si no s'introdueix el sexe,
@@ -22,6 +37,7 @@ def matriculats(assig, quadri, an, sex):
     return c
 
 
+@time_this
 def aprovats(assig, quadri, an, sex):
     """
     retorna el nombre d'aprovats per assignatura, quadrimestre i any. si no s'introdueix el paràmetre sex retorna
@@ -46,6 +62,7 @@ def aprovats(assig, quadri, an, sex):
     return c
 
 
+@time_this
 def percentatge(assig, quad, an, sex):
     """
     retorna el percentatge d'aprovats per assignatura, quadrimestre, i any
@@ -55,61 +72,62 @@ def percentatge(assig, quad, an, sex):
     else:
         return 0
 
-    # def aprovats1a(assig):
-    # f = open('/static/NouFitxer.csv','r')
-    # exp = []
-    # la = []
-    # c = 0
-    # ctot = 0
-    # for linea in f:
-    # l = linea.split(';')
-    # if exp != l[1]:
-    # exp = l[1]
-    # ctot = ctot + 1
-    # for e in la:
-    # if e == 'N':
-    # pass
-    # else:
-    # c = c+1
-    # la = []
-    # if l[2] == assig:
-    # la.append(l[5])
-    # return (c/ctot)*100
-    # """
-    # def intent(assig,i,sex=0):
-    # """
-    # reorna el percentatge d'aprovats a la i-essima la assignatura assig
-    # """
-    # f = open('/NouFitxer.csv','r')
-    # exp = []
-    # la = []
-    # c = 0
-    # ctot = 0
-    # for linea in f:
-    # l = linea.split(';')
-    # if exp != l[1]:
-    # exp = l[1]
-    # if sex != 0:
-    # if l[8] == sex:
-    # ctot = ctot + 1
-    # else:
-    # pass
-    # else:
-    # ctot = ctot + 1
-    # if 'S' in la:
-    # if len(la) == i:
-    # c = c+1
-    # la = []
-    # if sex != 0:
-    # if l[8] == sex:
-    # if l[2] == assig:
-    # la.append(l[5])
-    # else:
-    # if l[2] == assig:
-    # la.append(l[5])
-    # return (c/ctot)*100
+        # def aprovats1a(assig):
+        # f = open('/static/NouFitxer.csv','r')
+        # exp = []
+        # la = []
+        # c = 0
+        # ctot = 0
+        # for linea in f:
+        # l = linea.split(';')
+        # if exp != l[1]:
+        # exp = l[1]
+        # ctot = ctot + 1
+        # for e in la:
+        # if e == 'N':
+        # pass
+        # else:
+        # c = c+1
+        # la = []
+        # if l[2] == assig:
+        # la.append(l[5])
+        # return (c/ctot)*100
+        # """
+        # def intent(assig,i,sex=0):
+        # """
+        # reorna el percentatge d'aprovats a la i-essima la assignatura assig
+        # """
+        # f = open('/NouFitxer.csv','r')
+        # exp = []
+        # la = []
+        # c = 0
+        # ctot = 0
+        # for linea in f:
+        # l = linea.split(';')
+        # if exp != l[1]:
+        # exp = l[1]
+        # if sex != 0:
+        # if l[8] == sex:
+        # ctot = ctot + 1
+        # else:
+        # pass
+        # else:
+        # ctot = ctot + 1
+        # if 'S' in la:
+        # if len(la) == i:
+        # c = c+1
+        # la = []
+        # if sex != 0:
+        # if l[8] == sex:
+        # if l[2] == assig:
+        # la.append(l[5])
+        # else:
+        # if l[2] == assig:
+        # la.append(l[5])
+        # return (c/ctot)*100
 
 
+@time_this
 def notamitja(assig, quad, an, sex):
     """
     retorna la mitjana per assigm quad i any
@@ -138,6 +156,7 @@ def notamitja(assig, quad, an, sex):
     return n / c
 
 
+@time_this
 def llistamitja(any, quad, sex):
     """
     fa una llista amb les mitjanes de totes les assignatures d'un any i un quadri
@@ -150,6 +169,7 @@ def llistamitja(any, quad, sex):
     return l
 
 
+@time_this
 def llistapercent(any, quad, sex):
     # fa la llista amb els perentatges de la nota
     l = []

@@ -35,11 +35,11 @@
 		  <img src="{{ url_for('static', filename='img/Logotip_ETSEIB.svg') }}" style="height:50px; width:50px;float: right;">
 		</ul>
 	</header>
-	<script>
+<!--	<script>
 		function slideOpen(){
 		document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
-		}	
-	</script>
+		}
+	</script>-->
 		<!-- PER TAL DE FER MES RESPONSIVE LA PAGINA I QUE A GOOGLE LI AGRADI MÉS, HO DEFINIM PER SECCIONS 
 		DINTRE D'AQUESTES TINDREM ARTICLES QUE SEGONS EL TAMANY DE PANTALLA CAURAN PER COLUMNES-->
 	<section class="container" id="Summary">
@@ -56,7 +56,7 @@
 			<h1>Mitjana de notes i % d'aprovats</h1>
 			<p>Introdueix l'any, el quatrimestre i opcionalment pocs fer la comparativa entre nois i noies de l'escola. Un cop introduïts els parametres desitjats, premi el botó de refrescar gràfic per la seva visualització </p> 
 			<fieldset>
-			<form action="/filtre" method="post">
+			<form action="/" method="post">
 			<button id="go">Refrescar Gràfic</button>
 			<p>Selecciona el curs</p>
 				<select name="curs">
@@ -89,19 +89,19 @@
 	<article class="item" id="contact">
 		<h1>Contacte</h1>
 			<p>Deixa un comentari i ens posarem en contacte quan el veiem</p>
-		<form onsubmit="alert('I will contact you asap!!')" action="" id="contact">
+		<form onsubmit="alert('I will contact you asap!!')" action="" id="contact1">
 				<fieldset>	
 					<legend>Deixa un comentari</legend>
 					<label>Nom:</label>
-					<input type="text" name="name" value="" placeholder="name"> </input>
+					<input type="text" name="name" value="" placeholder="name"/>
 					<br/>
-					<label>Email:</label> 
-					<input type="email" name="email" value="" placeholder="youremail@domain.com" required="required"></input> 
+					<label>Email:</label>
+					<input type="email" name="email" value="" placeholder="youremail@domain.com" required="required"/>
 					<br/>
 					<label>Comentari:</label><br>
 					<textarea name="comment" id="comment" rows="15" cols="50" placeholder="deixa el teu comentari aqui..."></textarea>
 					<br/>
-					<input type="submit" value="Envia"></input>
+					<input type="submit" value="Envia"/>
 				</fieldset>
 			</form>
 	</article>
